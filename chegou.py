@@ -21,16 +21,16 @@ url = "http://www.linkcorreios.com.br/" #site de consulta a encomendas
 # pega o rastreio passado como parametro
 try:
     f = sys.argv[1]
-except IndexError:
+except IndexError: #ahh esses humanos, sem codigo, manda um teste na excessão, garantindo parametros ...
     f = "PL438427580BR"
-    print '\033[32m'+'Codigo de Rastreio ausente, utilizar chegou.py CODIGO'+'\033[0;0m'
+    print ('\033[32m'+'Codigo de Rastreio ausente, experimente: python chegou.py RASTREADOR'+'\033[0;0m')
     print u' utilizando um teste ...'
 
 new_url = url+f # concatena o rastreio a url
 
 if f != None: # se tem boi na linha consulta
     content = urllib2.urlopen(new_url).read()
-    soup = BeautifulSoup(content)
+    soup = BeautifulSoup(content,"html.parser")
     # imprimir soh um intervalo ou a div com tag class="container"
     state = soup.find_all("div", class_="container")
     # imprime a primeira ocorrencia e converte as tags para texto

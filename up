@@ -1,3 +1,3 @@
 git add *
-git commit -m '+ correcoes'
+git commit -m '+ correcoes para raspberyPi, adicionado sintaxe de parser.html'
 git push -u origin master
